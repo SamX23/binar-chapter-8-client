@@ -1,7 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import CreateRoutes from "./router";
+import { render } from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { App } from "./App";
 
-ReactDOM.render(<CreateRoutes />, document.getElementById("root"));
+render(<App />, document.getElementById("root"));

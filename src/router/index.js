@@ -1,22 +1,21 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import Loading from "../components/Loading";
+import { Loading } from "../components/Loading";
 
-const Home = lazy(() => import("../App"));
+const Home = lazy(() => import("../views/Home"));
+const Dashboard = lazy(() => import("../views/Dashboard"));
 
-export default function CreateRoutes() {
-  return (
-    <Router>
-      <Suspense fallback={<Loading />}>
-        <Switch>
-          <Route path="/dashboard">
-            <Home title="dashboard" />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Suspense>
-    </Router>
-  );
-}
+const Routing = () => (
+  <Suspense fallback={<Loading />}>
+    <Switch>
+      <Route path="/dashboard">
+        <Dashboard />
+      </Route>
+      <Route path="/">
+        <Home />
+      </Route>
+    </Switch>
+  </Suspense>
+);
+
+export default Routing;
