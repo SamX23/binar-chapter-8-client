@@ -18,7 +18,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
 }
 
 .fullheight::after {
@@ -34,4 +33,8 @@
   right: 0;
   position: absolute;
   z-index: -1;
+}
+
+p {
+  margin: 0;
 }

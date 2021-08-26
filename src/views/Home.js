@@ -1,67 +1,47 @@
 import { useState } from "react";
-import { Button, Card, Form } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import {
+  CreatePlayerForm,
+  RecentPlayerCard,
+  ToastNotification,
+} from "../components";
 
 const Home = () => {
   const [data, setData] = useState({
     username: "",
     password: "",
+    email: "",
+    experience: "",
+    level: "",
   });
+
+  const [recentData, setRecentData] = useState({});
+  const [showToast, setShowToast] = useState(false);
 
   let localData = localStorage.getItem("playerData");
   localData = localData ? JSON.parse(localData) : [];
 
-  const [validated, setValidated] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const form = event.currentTarget;
-
-    if (form.checkValidity() === false) {
-      event.stopPropagation();
-    } else {
-      localData.push(data);
-      localStorage.setItem("playerData", JSON.stringify(localData));
-    }
-
-    setValidated(true);
-  };
-
   return (
-    <Card className="border">
-      <Card.Title className="text-center py-3">Create Player</Card.Title>
-      <Card.Body>
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter username"
-              onChange={(e) => setData({ ...data, username: e.target.value })}
-              minLength="5"
-              required
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setData({ ...data, password: e.target.value })}
-              minLength="5"
-              required
-            />
-            <Form.Text className="text-muted">
-              We'll never share your password with anyone else.
-            </Form.Text>
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </Card.Body>
-    </Card>
+    <Row>
+      <Col>
+        <ToastNotification
+          showToast={showToast}
+          setShowToast={setShowToast}
+          title="Yeay !!"
+          msg="New player has been added !"
+        />
+        <CreatePlayerForm
+          stateData={data}
+          setStateDate={setData}
+          localData={localData}
+          setRecentData={setRecentData}
+          setShowToast={setShowToast}
+        />
+      </Col>
+      <Col>
+        <RecentPlayerCard recentData={recentData} />
+      </Col>
+    </Row>
   );
 };
 
