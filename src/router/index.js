@@ -1,6 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import { Loading } from "../components/Loading";
+import { Loading } from "../components";
 
 const Home = lazy(() => import("../views/Home"));
 const Dashboard = lazy(() => import("../views/Dashboard"));
