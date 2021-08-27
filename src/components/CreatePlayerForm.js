@@ -41,7 +41,7 @@ const CreatePlayerForm = ({
   };
 
   return (
-    <Card>
+    <Card className="shadow">
       <Card.Title className="text-center py-3">Create Player</Card.Title>
       <Card.Body>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
