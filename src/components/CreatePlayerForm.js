@@ -53,6 +53,7 @@ const CreatePlayerForm = ({
               onChange={handleUsernameChange}
               value={stateData.username}
               minLength="5"
+              autoComplete="username"
               required
             />
           </Form.Group>
@@ -65,6 +66,7 @@ const CreatePlayerForm = ({
               onChange={handlePasswordChange}
               value={stateData.password}
               minLength="5"
+              autoComplete="current-password"
               required
             />
             <Form.Text className="text-muted">
