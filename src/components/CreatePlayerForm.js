@@ -73,6 +73,37 @@ const CreatePlayerForm = ({
               We'll never share your password with anyone else.
             </Form.Text>
           </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Email"
+              onChange={handleEmailChange}
+              value={stateData.email}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicExperience">
+            <Form.Label>Experience</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Experience"
+              onChange={handleExperienceChange}
+              value={stateData.experience}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicLevel">
+            <Form.Label>Level</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Level"
+              onChange={handleLevelChange}
+              value={stateData.level}
+            />
+          </Form.Group>
+
           <Button variant="primary" type="submit">
             Submit
           </Button>
