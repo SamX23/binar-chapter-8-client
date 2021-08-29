@@ -124,7 +124,7 @@ const CreatePlayerForm = ({
           </Row>
 
           <Button variant="primary" type="submit">
-            Submit
+            Create Player
           </Button>
         </Form>
       </Card.Body>

@@ -1,8 +1,10 @@
 import { Card } from "react-bootstrap";
 
-const RecentPlayerCard = ({ recentData }) => (
+const RecentPlayerCard = ({ recentData, title }) => (
   <Card className="shadow">
-    <Card.Title className="text-center py-3">Recently Added Player</Card.Title>
+    <Card.Title className="text-center py-3">
+      Recently {title} Player
+    </Card.Title>
     <Card.Body>
       <p>Username : {recentData.username}</p>
       <p>Password : {recentData.password}</p>
