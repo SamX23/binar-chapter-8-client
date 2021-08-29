@@ -23,11 +23,27 @@ const Dashboard = () => {
   const [searchData, setSearchData] = useState("");
   const [textFilter, setTextFilter] = useState("Filter");
 
-  // Dummy search(yet), only to show value on console
   const handleChange = (e) => setSearchData(e.target.value);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(searchData);
+
+  const filteredData = (value) => {
+    if (searchData === "") {
+      return value;
+    } else if (
+      textFilter === "Username" &&
+      value.username.toLowerCase().includes(searchData.toLowerCase())
+    ) {
+      return value;
+    } else if (
+      textFilter === "Email" &&
+      value.email.toLowerCase().includes(searchData.toLowerCase())
+    ) {
+      return value;
+    } else if (
+      textFilter === "Filter" &&
+      value.username.toLowerCase().includes(searchData.toLowerCase())
+    ) {
+      return value;
+    }
   };
 
   useEffect(() => {
@@ -39,7 +55,7 @@ const Dashboard = () => {
     <Row>
       <Col>
         <h3 className="text-center">PLAYER LIST</h3>
-        <Form className="d-flex align-items-center" onSubmit={handleSubmit}>
+        <Form className="d-flex align-items-center">
           <FormControl
             type="search"
             placeholder="Search"
@@ -60,24 +76,12 @@ const Dashboard = () => {
             >
               Email
             </Dropdown.Item>
-            <Dropdown.Item
-              onClick={(e) => setTextFilter(e.target.innerText)}
-              href="#"
-            >
-              Experience
-            </Dropdown.Item>
-            <Dropdown.Item
-              onClick={(e) => setTextFilter(e.target.innerText)}
-              href="#"
-            >
-              Level
-            </Dropdown.Item>
           </DropdownButton>
         </Form>
 
         <div className="bg-dark rounded py-2" style={playerGrid}>
           {data ? (
-            data.map((item, key) => (
+            data.filter(filteredData).map((item, key) => (
               <Card key={key} className="my-1">
                 <Card.Body>
                   <p>Username : {item.username}</p>
