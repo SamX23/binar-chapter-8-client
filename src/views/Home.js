@@ -5,6 +5,7 @@ import {
   UpdatePlayerForm,
   RecentPlayerCard,
   ToastNotification,
+  SearchPlayerForm,
 } from "../components";
 
 const Home = () => {
@@ -46,7 +47,7 @@ const Home = () => {
             <UpdatePlayerForm setRecentUpdate={setRecentUpdate} />
           </Tab>
           <Tab className="mb-3" eventKey="search" title="Search">
-            <UpdatePlayerForm />
+            <SearchPlayerForm />
           </Tab>
         </Tabs>
       </Col>

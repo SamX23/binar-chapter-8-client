@@ -51,7 +51,7 @@ const UpdatePlayerForm = ({ setRecentUpdate }) => {
       <Card.Body>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <FloatingLabel
-            controlId="formBasicUsername"
+            controlId="updateUsername"
             label="Username"
             className="my-3"
           >
@@ -71,7 +71,7 @@ const UpdatePlayerForm = ({ setRecentUpdate }) => {
             </Form.Select>
           </FloatingLabel>
 
-          <FloatingLabel controlId="formBasicPassword" label="Password">
+          <FloatingLabel controlId="updatePassword" label="Password">
             <Form.Control
               type="text"
               onChange={handlePasswordChange}
@@ -81,11 +81,7 @@ const UpdatePlayerForm = ({ setRecentUpdate }) => {
             />
           </FloatingLabel>
 
-          <FloatingLabel
-            controlId="formBasicEmail"
-            label="Email"
-            className="my-3"
-          >
+          <FloatingLabel controlId="updateEmail" label="Email" className="my-3">
             <Form.Control
               type="email"
               placeholder="email"
@@ -96,7 +92,7 @@ const UpdatePlayerForm = ({ setRecentUpdate }) => {
           <Row>
             <Col>
               <FloatingLabel
-                controlId="formBasicExperience"
+                controlId="updateExperience"
                 label="Experience"
                 className="mb-3"
               >
@@ -110,7 +106,7 @@ const UpdatePlayerForm = ({ setRecentUpdate }) => {
 
             <Col>
               <FloatingLabel
-                controlId="formBasicLevel"
+                controlId="updateLevel"
                 label="Level"
                 className="mb-3"
               >
