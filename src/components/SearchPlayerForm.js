@@ -32,6 +32,16 @@ const SearchPlayerForm = () => {
     ) {
       return value;
     } else if (
+      textFilter === "Experience" &&
+      value.experience.toLowerCase().includes(searchValue.toLowerCase())
+    ) {
+      return value;
+    } else if (
+      textFilter === "Level" &&
+      value.level.toLowerCase().includes(searchValue.toLowerCase())
+    ) {
+      return value;
+    } else if (
       textFilter === "Filter" &&
       value.username.toLowerCase().includes(searchValue.toLowerCase())
     ) {
@@ -67,6 +77,18 @@ const SearchPlayerForm = () => {
             href="#"
           >
             Email
+          </Dropdown.Item>
+          <Dropdown.Item
+            onClick={(e) => setTextFilter(e.target.innerText)}
+            href="#"
+          >
+            Experience
+          </Dropdown.Item>
+          <Dropdown.Item
+            onClick={(e) => setTextFilter(e.target.innerText)}
+            href="#"
+          >
+            Level
           </Dropdown.Item>
         </DropdownButton>
       </Form>
