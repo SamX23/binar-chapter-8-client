@@ -53,9 +53,9 @@ const SearchPlayerForm = () => {
       </Form>
 
       {showSearch ? (
-        <div>
-          Searcing {textFilter != "Filter" ? textFilter : null} for {showSearch}{" "}
-          ...{" "}
+        <div className="mt-3">
+          Searcing {textFilter !== "Filter" ? textFilter : null} for{" "}
+          {showSearch} ...{" "}
         </div>
       ) : null}
     </>

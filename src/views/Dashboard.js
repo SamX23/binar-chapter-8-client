@@ -4,6 +4,7 @@ import {
   Col,
   Dropdown,
   DropdownButton,
+  Form,
   FormControl,
   Row,
 } from "react-bootstrap";
@@ -22,6 +23,13 @@ const Dashboard = () => {
   const [searchData, setSearchData] = useState("");
   const [textFilter, setTextFilter] = useState("Filter");
 
+  // Dummy search(yet), only to show value on console
+  const handleChange = (e) => setSearchData(e.target.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(searchData);
+  };
+
   useEffect(() => {
     const localData = localStorage.getItem("playerData");
     setData(JSON.parse(localData));
@@ -31,12 +39,13 @@ const Dashboard = () => {
     <Row>
       <Col>
         <h3 className="text-center">PLAYER LIST</h3>
-        <div className="d-flex align-items-center">
+        <Form className="d-flex align-items-center" onSubmit={handleSubmit}>
           <FormControl
             type="search"
             placeholder="Search"
             className="my-2"
             aria-label="Search"
+            onChange={handleChange}
           />
           <DropdownButton id="dropdown-basic-button" title={textFilter}>
             <Dropdown.Item
@@ -64,7 +73,7 @@ const Dashboard = () => {
               Level
             </Dropdown.Item>
           </DropdownButton>
-        </div>
+        </Form>
 
         <div className="bg-dark rounded py-2" style={playerGrid}>
           {data ? (
