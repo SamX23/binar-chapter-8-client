@@ -5,6 +5,7 @@ import RecentPlayerCard from "./RecentPlayerCard";
 import ToastNotification from "./ToastNotification";
 import CreatePlayerForm from "./CreatePlayerForm";
 import UpdatePlayerForm from "./UpdatePlayerForm";
+import SearchPlayerForm from "./SearchPlayerForm";
 
 export {
   Footer,
@@ -14,4 +15,5 @@ export {
   ToastNotification,
   CreatePlayerForm,
   UpdatePlayerForm,
+  SearchPlayerForm,
 };
